@@ -2,6 +2,18 @@ const robot = require("robotjs");
 //const wincmd = require("node-windows");
 // const { snapshot } = require("process-list");
 const processWindows = require("node-process-windows");
+
+const {PythonShell} = require("python-shell");
+// let pyshell = new PythonShell('test.py');
+
+var fsp = require("promise-fs");
+var exec = require("child-process-promise").exec;
+// PythonShell.defaultOptions = { scriptPath: './' };
+
+const control = require("./control.js");
+
+// sends a message to the Python script via stdin
+
 // const Iconv = require('iconv').Iconv;
 // const iconv  = require('iconv-lite');
 // const { Transform } = require("stream");
@@ -53,67 +65,37 @@ if (typeof hWnd === 'number' && hWnd > 0
   // robot.dragMouse(789, 500);
   // robot.mouseToggle("up");
 
-  // snapshot('pid', 'name').then(tasks=>{
-  //   tasks.forEach(task=>{
-  //     console.log(task);
+
+  // processWindows.getProcesses(function(err, processes) {
+  //   processes.forEach(function (p) {
+  //     if(p.mainWindowTitle){
+  //       console.log("PID: " + p.pid.toString());
+  //       console.log("MainWindowTitle: " + p.mainWindowTitle);
+  //       console.log("ProcessName: " + p.processName);
+  //     }
   //   });
   // });
+}
 
-  // iconv.extendNodeEncodings();
+test();
 
-  processWindows.getProcesses(function(err, processes) {
-    processes.forEach(function (p) {
-      if(p.mainWindowTitle){
-        console.log("PID: " + p.pid.toString());
-        console.log("MainWindowTitle: " + p.mainWindowTitle);
-        console.log("ProcessName: " + p.processName);
-      }
-    });
-  });
+//http://blog.naver.com/PostView.nhn?blogId=htblog&logNo=221510551432&parentCategoryNo=&categoryNo=99&viewDate=&isShowPopularPosts=true&from=search
+async function test(){
+  let clickSuccess;// = await control.imageClick("test.png");
+  while(!clickSuccess){
+    console.error("find image");
+    clickSuccess = await control.imageClick("test.png");
+    if(clickSuccess){
+      await control.typewrite("rlaxowls");
+    }
+  }
+  
+  // await control.key("press", "a");
+  // await control.key("keyDown", "b");
+  await control.copy("sfsfsefsfd");
+  // await control.key("hotkey", "ctrl", "v");
+  await control.paste();
 
-
-
-
-
-  // wincmd.list(function(svc){
-  //   console.log(svc);
-  // },true);
-
-  // console.error(WindowInfo);
-  // return;
-  //
-  // (async () => {
-  //   const wi = new WindowInfo({
-  //     delay: 1000,
-  //   })
-  //   let receivedData = 0
-  //   const limit = 1
-  //   wi
-  //     .pipe(new Transform({
-  //       transform(data, enc, next) {
-  //         if (receivedData < limit) {
-  //           this.push(data)
-  //         } else {
-  //           // limit reached
-  //           wi.destroy()
-  //         }
-  //         receivedData++
-  //         next()
-  //       },
-  //       objectMode: true,
-  //       highWaterMark: 0, // disable receiving buffering
-  //     }))
-  //     .pipe(new Transform({
-  //       transform(data, enc, next) {
-  //         this.push(JSON.stringify([
-  //           ['winid', 'App Name', 'Window Title', 'pid'],
-  //           ...data,
-  //         ]))
-  //         console.log(data);
-  //         next()
-  //       },
-  //       writableObjectMode: true,
-  //     }))
-  //     .pipe(process.stdout)
-  // })()
+  // await control.screenshot("sc4.png");
+  // await control.screenshot("sc5.png", 0, 0, 300, 300);
 }

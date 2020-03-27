@@ -10,8 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "child-process-promise": "^2.2.1",
+    "clipboardy": "^2.3.0",
     "node-process-windows": "0.0.2",
     "node-windows": "^1.0.0-beta.1",
+    "promise-fs": "^2.1.1",
+    "python-shell": "^1.0.8",
     "ref-napi": "^1.4.3",
     "ref-struct-di": "^1.1.0",
     "robotjs": "^0.6.0",
