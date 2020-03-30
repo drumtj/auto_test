@@ -60,7 +60,7 @@ function locateOnScreenUntil(src, opt){
       result = await locateOnScreen(src, opt);
       console.log(".");
       if(result){
-        console.log("found", result);
+        console.log("found", src, result);
         break;
       }
       if(c++ >= opt.count){
@@ -73,15 +73,41 @@ function locateOnScreenUntil(src, opt){
   })
 }
 
+//list(pyautogui.locateAllOnScreen('books.png'))
+//click
+//move
+//drag
+//typewrite
+//keyUp
+//keyDown
+//hotkey
+//press
 
 
 async function test(){
   let s = await size();
   let region = {left:0, top:s.height-100, width:s.width, height:100};
-  let result = await locateOnScreenUntil("test.png",{
-    region,
-    grayscale: true
-  });
+  let result;
+  while(1){
+    result = await locateOnScreenUntil("test.png",{
+      region,
+      grayscale: true
+    });
+
+    if(result){
+      result = await locateOnScreenUntil("test2.png",{
+        region,
+        grayscale: true
+      });
+
+      if(result){
+        result = await locateOnScreenUntil("test3.png",{
+          region,
+          grayscale: true
+        });
+      }
+    }
+  }
 }
 
 
