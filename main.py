@@ -4,7 +4,8 @@ import pyautogui as pa
 import random
 import sys
 # from numbers import Number
-import win32gui, win32api, win32con
+import win32gui, win32api, win32con, win32process
+import psutil
 
 class Control(object):
 
@@ -205,6 +206,59 @@ class Control(object):
         except win32gui.error:
             return None
 
+    def FindWindowByPid(self, pid):
+        """Gets handle of the window that belongs to a process.
+
+        Args:
+          pid: process id.
+        Returns:
+          Window handle.
+        """
+
+        def callback(hwnd, hwnds):
+          if win32gui.IsWindowVisible(hwnd) and win32gui.IsWindowEnabled(hwnd):
+            _, found_pid = win32process.GetWindowThreadProcessId(hwnd)
+            if found_pid == pid:
+              hwnds.append(hwnd)
+          return True
+
+        hwnds = []
+        win32gui.EnumWindows(callback, hwnds)
+        return hwnds[0] if hwnds else None
+
+    def GetWindowList(self):
+        """
+        returns window title list
+        based on this answer - https://stackoverflow.com/a/31280850
+        """
+
+        titles = []
+        t = []
+        pidList = [(p.pid, p.name()) for p in psutil.process_iter()]
+
+        def enumWindowsProc(hwnd, lParam):
+            """ append window titles which match a pid """
+            if (lParam is None) or ((lParam is not None) and (win32process.GetWindowThreadProcessId(hwnd)[1] == lParam)):
+                text = win32gui.GetWindowText(hwnd)
+                if text:
+                    wStyle = win32api.GetWindowLong(hwnd, win32con.GWL_STYLE)
+                    if wStyle & win32con.WS_VISIBLE:
+                        t.append("%s" % (text))
+                        return
+
+        def enumProcWnds(pid=None):
+            win32gui.EnumWindows(enumWindowsProc, pid)
+
+        for pid, pName in pidList:
+            enumProcWnds(pid)
+            if t:
+                for title in t:
+                    titles.append({'pname':pName, 'title':title, 'pid':pid})
+                    # titles.append("('{0}', '{1}')".format(pName, title))
+                t = []
+
+        titles = sorted(titles, key=lambda x: x['title'].lower())
+        return titles
     # @zerorpc.stream
     # def streaming_range(self, fr, to):
     #     return range(fr, to)

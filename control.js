@@ -276,11 +276,20 @@ function SetWindowRect(hwnd, x, y, width, height){
   return invoke("SetWindowRect", hwnd, x, y, width, height);
 }
 
+function FindWindowByPid(pid){
+  return invoke("FindWindowByPid", pid);
+}
+
+function GetWindowList(){
+  return invoke("GetWindowList");
+}
+
 module.exports = {
   press, keyDown, keyUp, mouseDown, mouseUp, moveTo, moveRel, dragTo, dragRel, click, rightClick, doubleClick,
   copy, paste, typewrite, hotkey, screenshot, center, position, size, locateAllOnScreen, locateOnScreen, locateOnScreenUntil,
 
-  FindWindowByTitle, FindWindowByClass, GetWindowRect, GetWindowText, SetForegroundWindow, ShowWindow, SW_TYPE, SetWindowText, SetWindowPos, SetWindowSize, SetWindowRect,
+  FindWindowByTitle, FindWindowByClass, GetWindowRect, GetWindowText, SetForegroundWindow, ShowWindow, SW_TYPE, SetWindowText, SetWindowPos, SetWindowSize, SetWindowRect, FindWindowByPid,
+  GetWindowList,
 
   start, stop, delay
 }

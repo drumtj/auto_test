@@ -4,6 +4,10 @@ const control = require("./control.js");
 async function test(){
   control.start();
 
+  // console.log(await control.FindWindowByPid(39744))
+  // console.log(await control.GetWindowList());
+  // return;
+
   let s = await control.size();
   let bottomBox = {left:0, top:s.height-100, width:s.width, height:100};
   let step = {
