@@ -82,7 +82,7 @@ function delay(n){
 function locateOnScreenUntil(src, opt){
   opt = Object.assign({
     count: 60,
-    delay: 1000
+    delay: 100
   }, opt||{});
   return new Promise(async resolve=>{
     let result, c=0;
@@ -268,11 +268,19 @@ function SetWindowPos(hwnd, x, y){
   return invoke("SetWindowPos", hwnd, x, y);
 }
 
+function SetWindowSize(hwnd, width, height){
+  return invoke("SetWindowSize", hwnd, width, height);
+}
+
+function SetWindowRect(hwnd, x, y, width, height){
+  return invoke("SetWindowRect", hwnd, x, y, width, height);
+}
+
 module.exports = {
   press, keyDown, keyUp, mouseDown, mouseUp, moveTo, moveRel, dragTo, dragRel, click, rightClick, doubleClick,
   copy, paste, typewrite, hotkey, screenshot, center, position, size, locateAllOnScreen, locateOnScreen, locateOnScreenUntil,
 
-  FindWindowByTitle, FindWindowByClass, GetWindowRect, GetWindowText, SetForegroundWindow, ShowWindow, SW_TYPE, SetWindowText, SetWindowPos,
+  FindWindowByTitle, FindWindowByClass, GetWindowRect, GetWindowText, SetForegroundWindow, ShowWindow, SW_TYPE, SetWindowText, SetWindowPos, SetWindowSize, SetWindowRect,
 
   start, stop, delay
 }

@@ -192,6 +192,19 @@ class Control(object):
         except win32gui.error:
             return None
 
+    def SetWindowSize(self, hwnd, width, height):
+        try:
+            left, top, right, bottom = win32gui.GetWindowRect(hwnd)
+            return win32gui.SetWindowPos(hwnd, win32con.HWND_TOPMOST, left, top, width, height, win32con.SWP_NOZORDER)
+        except win32gui.error:
+            return None
+
+    def SetWindowRect(self, hwnd, x, y, width, height):
+        try:
+            return win32gui.SetWindowPos(hwnd, win32con.HWND_TOPMOST, x, y, width, height, win32con.SWP_NOZORDER)
+        except win32gui.error:
+            return None
+
     # @zerorpc.stream
     # def streaming_range(self, fr, to):
     #     return range(fr, to)
