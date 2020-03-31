@@ -1,220 +1,278 @@
 const {PythonShell} = require("python-shell");
-const clipboardy = require('clipboardy');
-const robot = require("robotjs");
+const zerorpc = require("zerorpc");
+var client;
 
-const processWindows = require("node-process-windows");
-//executeProcess에 "chcp 65001 | " 추가해야 한글 안깨짐
-
-const { DModel, DStruct, K,U } = require('win32-api');
-const ref = require('ref-napi');
-const StructDi = require('ref-struct-di');
-const Struct = StructDi(ref);
-const knl32 = K.load();
-const user32 = U.load();  // load all apis defined in lib/{dll}/api from user32.dll
-// const user32 = U.load(['FindWindowExW'])  // load only one api defined in lib/{dll}/api from user32.dll
-
-function getPid(title){
-  return new Promise(resolve=>{
-    PythonShell.run('win.py', {
-      mode: 'json',
-      // pythonOptions: ['-u'],
-      args: ["getPid", title]
-    }, function (err, results) {
-      if (err) throw err;
-      resolve(results[0]);
-    });
-  })
-}
-module.exports.getPid = getPid;
-
-function focusWindow(pid){
-  return new Promise(resolve=>{
-    PythonShell.run('win.py', {
-      mode: 'json',
-      // pythonOptions: ['-u'],
-      args: ["focus", pid]
-    }, function (err, results) {
-      if (err) throw err;
-      // results is an array consisting of messages collected during execution
-      // console.log('results: %j', results);
-      resolve(results[0]);
-    });
-  })
-}
-module.exports.focusWindow = focusWindow;
-
-function getProcessList(){
-  return new Promise(resolve=>{
-    processWindows.getProcesses(function(err, processes) {
-      // let list = [];
-      // processes.forEach(function (p) {
-      //   if(p.mainWindowTitle){
-      //     list.push(p);
-      //     console.log("PID: " + p.pid.toString());
-      //     // console.log("MainWindowTitle: " + p.mainWindowTitle);
-      //     console.log("ProcessName: " + p.processName);
-      //   }
-      // });
-      // resolve(list);
-      resolve(processes.filter(p=>!!p.mainWindowTitle))
-    });
-  })
-}
-module.exports.getProcessList = getProcessList;
-
-function getWindowHandle(title){
-  title = title + '\0';    // null-terminated string
-
-  const lpszWindow = Buffer.from(title, 'ucs2');
-  const hWnd = user32.FindWindowExW(0, 0, null, lpszWindow);
-
-  if (typeof hWnd === 'number' && hWnd > 0
-    || typeof hWnd === 'bigint' && hWnd > 0
-    || typeof hWnd === 'string' && hWnd.length > 0
-  ) {
-    return hWnd;
+function start(){
+  if(!client){
+    client = new zerorpc.Client();
   }
-  return null;
+  client.connect("tcp://127.0.0.1:4242");
+
+  PythonShell.run('main.py', null, function (err, results) {
+    if (err) throw err;
+    console.error("run finish py");
+  });
 }
-module.exports.getWindowHandle = getWindowHandle;
 
-function setWindowTitle(hWnd, title){
-  if(hWnd == null) return false;
-
-  const res = user32.SetWindowTextW(hWnd, Buffer.from(title+'\0', 'ucs2'))
-  if (!res) {
-    return true;
-  }
-  else {
-    return false;
+function stop(){
+  if(client){
+    client.close();
   }
 }
-module.exports.setWindowTitle = setWindowTitle;
 
-function getWindowRect(hWnd){
-  if (hWnd !== null) {
-    let rect = new Struct(DStruct.RECT)();
-    user32.GetWindowRect(hWnd, rect.ref());
-    return {
-      left:rect.left, top:rect.top, right:rect.right, bottom:rect.bottom,
-      width:rect.right-rect.left, height:rect.bottom-rect.top
+function invoke(name, ...args){
+  // console.error(name, args);
+  // let argv = [name, ...args]
+  return new Promise((resolve, reject)=>{
+    try{
+      if(client){
+        client.invoke(name, ...args, (error, res, more)=>{
+          if(error){
+            reject(error);
+            return;
+          }
+
+          // console.log(res);
+          resolve(res);
+        })
+      }else{
+        reject("선언된 client가 없음. 반드시 start()함수를 처음에 실행하세요");
+      }
+    }catch(e){
+      reject(e)
+    }
+  })
+}
+
+
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+
+
+
+function size(){
+  return invoke("size");
+}
+
+function locateOnScreen(src, opt){
+  opt = Object.assign({
+    confidence: 0.8,
+    region: null,//{left:0, top:0, width:10, height:10}
+    grayscale: false
+  }, opt||{})
+  return invoke("locateOnScreen", src, opt.confidence, opt.region, opt.grayscale);
+}
+
+function locateAllOnScreen(src, opt){
+  opt = Object.assign({
+    confidence: 0.8,
+    region: null,//{left:0, top:0, width:10, height:10}
+    grayscale: false
+  }, opt||{})
+  return invoke("locateAllOnScreen", src, opt.confidence, opt.region, opt.grayscale);
+}
+
+function delay(n){
+  return new Promise(resolve=>{
+    setTimeout(resolve, n)
+  })
+}
+
+function locateOnScreenUntil(src, opt){
+  opt = Object.assign({
+    count: 60,
+    delay: 1000
+  }, opt||{});
+  return new Promise(async resolve=>{
+    let result, c=0;
+    while(!result){
+      result = await locateOnScreen(src, opt);
+      console.log(".");
+      if(result){
+        console.log("found", src, result);
+        break;
+      }
+      if(c++ >= opt.count){
+        break;
+      }
+      await delay(opt.delay);
+    }
+
+    resolve(result);
+  })
+}
+
+function _makePos(x, y){
+  let pos;
+  if(typeof x === "number"){
+    pos = {left:x, top:y};
+  }else{
+    if(x['x']){
+      pos = {left:x.x, top:x.y};
+    }else{
+      pos = x;
     }
   }
-  return null;
+  return pos;
 }
-module.exports.getWindowRect = getWindowRect;
 
-
-function move(x, y){
-  return new Promise(resolve=>{
-    PythonShell.run('mouse.py', {
-      mode: 'json',
-      // pythonOptions: ['-u'],
-      args: ["move", x, y]
-    }, function (err, results) {
-      if (err) throw err;
-      // results is an array consisting of messages collected during execution
-      // console.log('results: %j', results);
-      resolve(results[0]);
-    });
-  })
+function mouseDown(x, y){
+  return invoke("mouseDown", _makePos(x, y));
 }
-module.exports.move = move;
 
-function moveSmooth(x, y){
-  return new Promise(resolve=>{
-    PythonShell.run('mouse.py', {
-      mode: 'json',
-      // pythonOptions: ['-u'],
-      args: ["moveSmooth", x, y]
-    }, function (err, results) {
-      if (err) throw err;
-      // results is an array consisting of messages collected during execution
-      // console.log('results: %j', results);
-      resolve(results[0]);
-    });
-  })
+function mouseUp(x, y){
+  return invoke("mouseUp", _makePos(x, y));
 }
-module.exports.moveSmooth = moveSmooth;
 
-//button:left,right,middle  double:false,true
-function click(button, double){
-  robotjs.mouseClick(button, double);
-  return Promise.resolve(true);
+function dragTo(x, y, duration){
+  if(typeof duration === undefined){
+    duration = y;
+  }
+  return invoke("dragTo", _makePos(x, y), duration);
 }
-module.exports.click = click;
 
-function imageClick(btnImg){
-  return new Promise(resolve=>{
-    PythonShell.run('mouse.py', {
-      mode: 'json',
-      // pythonOptions: ['-u'],
-      args: ["imageClick", btnImg]
-    }, function (err, results) {
-      if (err) throw err;
-      // results is an array consisting of messages collected during execution
-      // console.log('results: %j', results);
-      resolve(results[0]);
-    });
-  })
+function dragRel(x, y, duration){
+  if(typeof duration === undefined){
+    duration = y;
+  }
+  return invoke("dragRel", _makePos(x, y), duration);
 }
-module.exports.imageClick = imageClick;
+
+function click(x, y, opt){
+  if(typeof opt === undefined){
+    opt = y;
+  }
+  opt = Object.assign({
+    clicks: 1,
+    interval: 0
+  }, opt||{});
+  return invoke("click", _makePos(x, y), opt);
+}
+
+function rightClick(x, y){
+  return invoke("rightClick", _makePos(x, y));
+}
+
+function doubleClick(x, y){
+  return invoke("doubleClick", _makePos(x, y));
+}
+
+function keyDown(key){
+  return invoke("keyDown", key);
+}
+
+function keyUp(key){
+  return invoke("keyUp", key);
+}
+
+function moveTo(x, y, sec){
+  if(typeof sec === undefined){
+    sec = y;
+  }
+  return invoke("moveTo", _makePos(x, y), sec);
+  // return invoke("moveTo", left, top, sec);
+}
+
+function moveRel(x, y, duration){
+  if(typeof duration === undefined){
+    duration = y;
+  }
+  return invoke("moveRel", _makePos(x, y), duration);
+}
+
+function position(){
+  return invoke("position");
+}
+
+//string|string[]
+function press(key){
+  return invoke("press", key);
+}
+
+function center(rect){
+  return {left:(rect.left||0)+rect.width/2, top:(rect.top||0)+rect.height/2};
+}
 
 function typewrite(str){
-  return new Promise(resolve=>{
-    PythonShell.run('typewrite.py', {
-      mode: 'text',
-      // pythonOptions: ['-u'],
-      args: [str]
-    }, function (err, results) {
-      if (err) throw err;
-      // results is an array consisting of messages collected during execution
-      // console.log('results: %j', results);
-      resolve();
-    });
-  })
+  return invoke("typewrite", str);
 }
-module.exports.typewrite = typewrite;
 
-function screenshot(filename, x, y, width, height){
-  return new Promise(resolve=>{
-    PythonShell.run('screenshot.py', {
-      mode: 'json',
-      // pythonOptions: ['-u'],
-      args: [filename, x, y, width, height].filter(a=>a!==undefined)
-    }, function (err, results) {
-      if (err) throw err;
-      // results is an array consisting of messages collected during execution
-      // console.log('results: %j', results);
-      resolve(results[0]);
-    });
-  })
+function scroll(delta, x, y){
+  return invoke("scroll", delta, _makePos(x, y));
 }
-module.exports.screenshot = screenshot;
 
-function key(com, a, b, c){
-  return new Promise(resolve=>{
-    PythonShell.run('key.py', {
-      mode: 'json',
-      // pythonOptions: ['-u'],
-      args: [com, a, b, c].filter(a=>a!==undefined)
-    }, function (err, results) {
-      if (err) throw err;
-      // results is an array consisting of messages collected during execution
-      // console.log('results: %j', results);
-      resolve(results[0]);
-    });
-  })
+function hotkey(...keys){
+  // console.error(keys);
+  return invoke("hotkey", keys);
 }
-module.exports.key = key;
 
-function copy(data){
-  clipboardy.writeSync(data);
-  return Promise.resolve(true);
+function copy(){
+  return invoke("hotkey", ['ctrl', 'c']);
 }
-module.exports.copy = copy;
 
 function paste(){
-  return key("hotkey", "ctrl", "v");
+  return invoke("hotkey", ['ctrl', 'v']);
 }
-module.exports.paste = paste;
+
+//region >  {left,top,width,height}
+function screenshot(filename, region){
+  return invoke("screenshot", filename, region);
+}
+
+function FindWindowByTitle(title){
+  return invoke("FindWindowByTitle", title);
+}
+
+function FindWindowByClass(className){
+  return invoke("FindWindowByClass", className);
+}
+
+function GetWindowRect(hwnd){
+  return invoke("GetWindowRect", hwnd);
+}
+
+function GetWindowText(hwnd){
+  return invoke("GetWindowText", hwnd);
+}
+
+function SetForegroundWindow(hwnd){
+  return invoke("SetForegroundWindow", hwnd);
+}
+
+const SW_TYPE = {
+  FORCEMINIMIZE: 11,
+  HIDE: 0,
+  MAXIMIZE: 3,
+  MINIMIZE: 6,
+  RESTORE: 9,
+  SHOW: 5,
+  SHOWDEFAULT: 10,
+  SHOWMAXIMIZED: 3,
+  SHOWMINIMIZED: 2,
+  SHOWMINNOACTIVE: 7,
+  SHOWNA: 8,
+  SHOWNOACTIVATE: 4,
+  SHOWNORMAL: 1
+}
+
+function ShowWindow(hwnd, sw_type){
+  return invoke("ShowWindow", hwnd, typeof sw_type === "number" ? sw_type : SW_TYPE.SHOW);
+}
+
+function SetWindowText(hwnd, title){
+  return invoke("SetWindowText", hwnd, title);
+}
+
+function SetWindowPos(hwnd, x, y){
+  return invoke("SetWindowPos", hwnd, x, y);
+}
+
+module.exports = {
+  press, keyDown, keyUp, mouseDown, mouseUp, moveTo, moveRel, dragTo, dragRel, click, rightClick, doubleClick,
+  copy, paste, typewrite, hotkey, screenshot, center, position, size, locateAllOnScreen, locateOnScreen, locateOnScreenUntil,
+
+  FindWindowByTitle, FindWindowByClass, GetWindowRect, GetWindowText, SetForegroundWindow, ShowWindow, SW_TYPE, SetWindowText, SetWindowPos,
+
+  start, stop, delay
+}
