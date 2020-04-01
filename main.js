@@ -15,7 +15,14 @@ async function test(){
       img: "test.png",
       area: bottomBox,
       success: "search2",
-      fail: "search1"
+      fail: "search1",
+      action: async function(rect){
+        await control.click(rect);
+        await control.copy("TEST");
+        await control.paste();
+        await control.paste();
+        await control.paste();
+      }
     },
     "search2": {
       img: "test2.png",
@@ -44,6 +51,9 @@ async function test(){
       prevState = st;
       state = step[st].success;
       console.error("success", prevState, "=>", state);
+      if(step[st].action){
+        await step[st].action(step[st].result);
+      }
       return Promise.resolve(true);
     }else{
       prevState = st;

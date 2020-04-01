@@ -6,6 +6,7 @@ import sys
 # from numbers import Number
 import win32gui, win32api, win32con, win32process
 import psutil
+import clipboard
 
 class Control(object):
 
@@ -259,6 +260,13 @@ class Control(object):
 
         titles = sorted(titles, key=lambda x: x['title'].lower())
         return titles
+
+    def copy(self, str):
+        if str != None:
+            clipboard.copy(str)
+        else:
+            pa.hotkey('ctrl', 'c')
+
     # @zerorpc.stream
     # def streaming_range(self, fr, to):
     #     return range(fr, to)

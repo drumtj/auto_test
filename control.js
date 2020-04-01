@@ -194,6 +194,11 @@ function center(rect){
   return {left:(rect.left||0)+rect.width/2, top:(rect.top||0)+rect.height/2};
 }
 
+function randomPoint(rect, margin){
+  margin = margin || 0;
+  return {left:(rect.left||0)+margin+Math.random()*(rect.width-margin*2), top:(rect.top||0)+margin+Math.random()*(rect.height-margin*2)};
+}
+
 function typewrite(str){
   return invoke("typewrite", str);
 }
@@ -207,8 +212,8 @@ function hotkey(...keys){
   return invoke("hotkey", keys);
 }
 
-function copy(){
-  return invoke("hotkey", ['ctrl', 'c']);
+function copy(str){
+  return invoke("copy", str);
 }
 
 function paste(){
@@ -286,7 +291,7 @@ function GetWindowList(){
 
 module.exports = {
   press, keyDown, keyUp, mouseDown, mouseUp, moveTo, moveRel, dragTo, dragRel, click, rightClick, doubleClick,
-  copy, paste, typewrite, hotkey, screenshot, center, position, size, locateAllOnScreen, locateOnScreen, locateOnScreenUntil,
+  copy, paste, typewrite, hotkey, screenshot, center, randomPoint, position, size, locateAllOnScreen, locateOnScreen, locateOnScreenUntil,
 
   FindWindowByTitle, FindWindowByClass, GetWindowRect, GetWindowText, SetForegroundWindow, ShowWindow, SW_TYPE, SetWindowText, SetWindowPos, SetWindowSize, SetWindowRect, FindWindowByPid,
   GetWindowList,
