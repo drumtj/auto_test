@@ -275,11 +275,11 @@ class Control(object):
     #     raise Exception(":P")
 
 
+if __name__ == "__main__" :
+    try:
+        s = zerorpc.Server(Control())
+        s.bind("tcp://0.0.0.0:4242")
+        s.run()
 
-try:
-    s = zerorpc.Server(Control())
-    s.bind("tcp://0.0.0.0:4242")
-    s.run()
-
-except KeyboardInterrupt:
-    print('process quit')
+    except KeyboardInterrupt:
+        print('process quit')

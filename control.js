@@ -1,5 +1,6 @@
-const {PythonShell} = require("python-shell");
+// const {PythonShell} = require("python-shell");
 const zerorpc = require("zerorpc");
+const spawn = require('child_process').spawn;
 var client;
 
 function start(){
@@ -8,10 +9,12 @@ function start(){
   }
   client.connect("tcp://127.0.0.1:4242");
 
-  PythonShell.run('main.py', null, function (err, results) {
-    if (err) throw err;
-    console.error("run finish py");
-  });
+  spawn("main.exe");
+
+  // PythonShell.run('main.py', null, function (err, results) {
+  //   if (err) throw err;
+  //   console.error("run finish py");
+  // });
 }
 
 function stop(){
