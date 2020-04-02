@@ -3,7 +3,7 @@ const Control = require("./control.js");
 
 async function test(){
 
-
+  // return;
   let control = new Control();
   // control.start();
 
@@ -12,7 +12,8 @@ async function test(){
   // console.log(await control.FindWindowByPid(39744))
   // console.log(await control.GetWindowList());
   // return;
-
+  // contorl.setDelay(1000);
+  // control.setRandomDelay(0, 1000);
   let s = await control.size();
   let bottomBox = {left:0, top:s.height-100, width:s.width, height:100};
   let step = {
@@ -125,7 +126,8 @@ async function test(){
   // console.error(hwnd, rect, title);
 
   // control.stop();
-  process.exit(0);
+  process.exit();
+  // control.destroy();
 }
 
 

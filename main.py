@@ -1,8 +1,8 @@
 import zerorpc
 import pyautogui as pa
 # import json
-import random
-import sys
+# import random
+# import sys
 # from numbers import Number
 import win32gui, win32api, win32con, win32process
 import psutil
@@ -276,10 +276,6 @@ class Control(object):
 
 
 if __name__ == "__main__" :
-    try:
-        s = zerorpc.Server(Control())
-        s.bind("tcp://0.0.0.0:4242")
-        s.run()
-
-    except KeyboardInterrupt:
-        print('process quit')
+    s = zerorpc.Server(Control())
+    s.bind("tcp://0.0.0.0:4242")
+    s.run()

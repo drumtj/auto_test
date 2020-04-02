@@ -10,17 +10,24 @@ module.exports = class Control {
   isSettledRandomDelay;
   minDelay;
   maxDelay;
-
+  childProcess;
   constructor(){
     this.client = new zerorpc.Client();
     this.client.connect("tcp://127.0.0.1:4242");
 
-    spawn("main.exe");
+    console.error("spawn main.exe");
+    this.childProcess = spawn("main.exe");
 
     // PythonShell.run('main.py', null, function (err, results) {
     //   if (err) throw err;
     //   console.error("run finish py");
     // });
+  }
+
+  destroy(){
+    if(this.childProcess){
+      this.childProcess.kill('SIGINT');
+    }
   }
 
   // stop(){
