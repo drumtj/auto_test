@@ -1,11 +1,14 @@
-const control = require("./control.js");
+const Control = require("./control.js");
 
 
 async function test(){
-  control.start();
 
-  console.error("wait 5sec");
-  await control.delay(5000);
+
+  let control = new Control();
+  // control.start();
+
+  // console.error("wait 5sec");
+  // await control.delay(5000);
   // console.log(await control.FindWindowByPid(39744))
   // console.log(await control.GetWindowList());
   // return;
@@ -44,7 +47,7 @@ async function test(){
 
   let state = "search1", prevState;
   async function go(st){
-    step[st].result = await control.locateOnScreenUntil(step[st].img,{
+    step[st].result = await control.locateOnScreenUntil(step[st].img, {
       region: step[st].area,
       grayscale: true,
       count: step[st].count
@@ -121,7 +124,7 @@ async function test(){
   // }
   // console.error(hwnd, rect, title);
 
-  control.stop();
+  // control.stop();
   process.exit(0);
 }
 
