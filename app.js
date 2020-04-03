@@ -1,6 +1,25 @@
 const Control = require("./control.js");
 
 
+test2();
+
+async function test2(){
+  let control = new Control();
+  console.log("wait 's' key");
+  await control.waitKey('s');
+  console.log("'q' quit");
+  while(1){
+    // await control.delay(100);
+    // key = await control.waitKey();
+    // key = await control.readKey();
+
+    if(await control.isPressKey('q')){
+      break;
+    }
+  }
+  process.exit();
+}
+
 async function test(){
 
   // return;
@@ -83,32 +102,6 @@ async function test(){
     }
   }
 
-  // let s = await control.size();
-  // let region = {left:0, top:s.height-100, width:s.width, height:100};
-  // let result;
-  // while(1){
-  //   result = await control.locateOnScreenUntil("test.png",{
-  //     region,
-  //     grayscale: true
-  //   });
-  //
-  //   if(result){
-  //     control.click(result);
-  //     break;
-  //
-  //     result = await control.locateOnScreenUntil("test2.png",{
-  //       region,
-  //       grayscale: true
-  //     });
-  //
-  //     if(result){
-  //       result = await control.locateOnScreenUntil("test3.png",{
-  //         region,
-  //         grayscale: true
-  //       });
-  //     }
-  //   }
-  // }
 
   ////////////////////////////////////////////////////////////////////////////////////////
   // let hwnd = await control.FindWindowByTitle("계산기");
@@ -129,6 +122,3 @@ async function test(){
   process.exit();
   // control.destroy();
 }
-
-
-test();

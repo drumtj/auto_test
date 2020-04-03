@@ -2,8 +2,9 @@ import zerorpc
 import pyautogui as pa
 # import json
 # import random
-# import sys
+import sys
 # from numbers import Number
+import keyboard
 import win32gui, win32api, win32con, win32process
 import psutil
 import clipboard
@@ -266,6 +267,28 @@ class Control(object):
             clipboard.copy(str)
         else:
             pa.hotkey('ctrl', 'c')
+
+    # def waitKey(self, key):
+    #     while True:
+    #         if keyboard.is_pressed(key):
+    #             break
+    #     return True
+
+    def isPressKey(self, key):
+        return keyboard.is_pressed(key)
+        # while True:
+        #     if keyboard.is_pressed(key):
+        #         break
+        # return True
+
+    # def waitKey(self):
+    #     while True:
+    #         if keyboard.is_pressed('a'):
+    #             break
+    #     return 'a'
+
+    # def readKey(self):
+    #     return keyboard.read_key()
 
     # @zerorpc.stream
     # def streaming_range(self, fr, to):

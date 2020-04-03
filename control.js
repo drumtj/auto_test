@@ -1,7 +1,6 @@
-// const {PythonShell} = require("python-shell");
+const {PythonShell} = require("python-shell");
 const zerorpc = require("zerorpc");
 const spawn = require('child_process').spawn;
-// var client;
 
 module.exports = class Control {
 
@@ -16,12 +15,12 @@ module.exports = class Control {
     this.client.connect("tcp://127.0.0.1:4242");
 
     console.error("spawn main.exe");
-    this.childProcess = spawn("main.exe");
+    // this.childProcess = spawn("main.exe");
 
-    // PythonShell.run('main.py', null, function (err, results) {
-    //   if (err) throw err;
-    //   console.error("run finish py");
-    // });
+    PythonShell.run('main.py', null, function (err, results) {
+      if (err) throw err;
+      console.error("run finish py");
+    });
   }
 
   destroy(){
@@ -329,6 +328,19 @@ module.exports = class Control {
   GetWindowList(){
     return this.invoke("GetWindowList");
   }
+
+  isPressKey(key){
+    return this.invoke("isPressKey", key);
+  }
+
+  async waitKey(key){
+    while(!await this.invoke("isPressKey", key));
+  }
+
+  // async readKey(){
+  //   // while(!await this.invoke("isPressKey", key));
+  //   return this.invoke("readKey")
+  // }
 }
 
 // module.exports = {
