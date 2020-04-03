@@ -1,0 +1,346 @@
+1585879890327	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\SM-1326\\AppData\\Local\\Temp\\rust_mozprofile6msGFU"
+1585879890990	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1585879891019	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1585879891019	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1585879891020	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1585879891020	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1585879893333	Marionette	INFO	Listening on port 55862
+1585879893595	Marionette	WARN	TLS certificate errors will be ignored for this session
+1585879954035	Marionette	INFO	Stopped listening on port 55862
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+
+KLIB_SelfTest return : KLR_OK
+1585879992661	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\SM-1326\\AppData\\Local\\Temp\\rust_mozprofile3QLaZQ"
+1585879993298	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1585879993734	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1585879993734	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1585879993734	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1585879993734	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1585879996015	Marionette	INFO	Listening on port 55960
+1585879996080	Marionette	WARN	TLS certificate errors will be ignored for this session
+1585879996373	Marionette	INFO	Stopped listening on port 55960
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+KLIB_SelfTest return : KLR_OK
+1585880280683	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\SM-1326\\AppData\\Local\\Temp\\rust_mozprofile8CGZ2P"
+1585880281325	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1585880281353	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1585880281353	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1585880281353	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1585880281353	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1585880283933	Marionette	INFO	Listening on port 56042
+1585880284048	Marionette	WARN	TLS certificate errors will be ignored for this session
+1585880290466	Marionette	INFO	Stopped listening on port 56042
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+
+KLIB_SelfTest return : KLR_OK
+1585880299374	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\SM-1326\\AppData\\Local\\Temp\\rust_mozprofilefvcwYM"
+1585880299999	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1585880300027	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1585880300028	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1585880300028	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1585880300028	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1585880302328	Marionette	INFO	Listening on port 56106
+1585880302632	Marionette	WARN	TLS certificate errors will be ignored for this session
+WARNING: At least one completion condition is taking too long to complete. Conditions: [{"name":"Extension shutdown: webcompat@mozilla.org","state":{"state":"Startup: Run manifest, asyncEmitManifestEntry(\"background\")"},"filename":"resource://gre/modules/addons/XPIProvider.jsm","lineNumber":2530,"stack":["resource://gre/modules/addons/XPIProvider.jsm:startup/<:2530","resource://gre/modules/AsyncShutdown.jsm:observe:551"]},{"name":"Extension shutdown: screenshots@mozilla.org","state":{"state":"Startup: Run manifest, asyncEmitManifestEntry(\"background\")"},"filename":"resource://gre/modules/addons/XPIProvider.jsm","lineNumber":2530,"stack":["resource://gre/modules/addons/XPIProvider.jsm:startup/<:2530","resource://gre/modules/AsyncShutdown.jsm:observe:551"]},{"name":"Extension shutdown: formautofill@mozilla.org","state":{"state":"Startup: Run manifest, asyncEmitManifestEntry(\"background\")"},"filename":"resource://gre/modules/addons/XPIProvider.jsm","lineNumber":2530,"stack":["resource://gre/modules/addons/XPIProvider.jsm:startup/<:2530","resource://gre/modules/AsyncShutdown.jsm:observe:551"]},{"name":"Extension shutdown: doh-rollout@mozilla.org","state":{"state":"Startup: Run manifest, asyncEmitManifestEntry(\"background\")"},"filename":"resource://gre/modules/addons/XPIProvider.jsm","lineNumber":2530,"stack":["resource://gre/modules/addons/XPIProvider.jsm:startup/<:2530","resource://gre/modules/AsyncShutdown.jsm:observe:551"]}] Barrier: profile-change-teardown
+FATAL ERROR: AsyncShutdown timeout in profile-change-teardown Conditions: [{"name":"Extension shutdown: webcompat@mozilla.org","state":{"state":"Startup: Run manifest, asyncEmitManifestEntry(\"background\")"},"filename":"resource://gre/modules/addons/XPIProvider.jsm","lineNumber":2530,"stack":["resource://gre/modules/addons/XPIProvider.jsm:startup/<:2530","resource://gre/modules/AsyncShutdown.jsm:observe:551"]},{"name":"Extension shutdown: screenshots@mozilla.org","state":{"state":"Startup: Run manifest, asyncEmitManifestEntry(\"background\")"},"filename":"resource://gre/modules/addons/XPIProvider.jsm","lineNumber":2530,"stack":["resource://gre/modules/addons/XPIProvider.jsm:startup/<:2530","resource://gre/modules/AsyncShutdown.jsm:observe:551"]},{"name":"Extension shutdown: formautofill@mozilla.org","state":{"state":"Startup: Run manifest, asyncEmitManifestEntry(\"background\")"},"filename":"resource://gre/modules/addons/XPIProvider.jsm","lineNumber":2530,"stack":["resource://gre/modules/addons/XPIProvider.jsm:startup/<:2530","resource://gre/modules/AsyncShutdown.jsm:observe:551"]},{"name":"Extension shutdown: doh-rollout@mozilla.org","state":{"state":"Startup: Run manifest, asyncEmitManifestEntry(\"background\")"},"filename":"resource://gre/modules/addons/XPIProvider.jsm","lineNumber":2530,"stack":["resource://gre/modules/addons/XPIProvider.jsm:startup/<:2530","resource://gre/modules/AsyncShutdown.jsm:observe:551"]}] At least one completion condition failed to complete within a reasonable amount of time. Causing a crash to ensure that we do not leave the user with an unresponsive process draining resources.
+[Parent 40668, Main Thread] ###!!! ABORT: file resource://gre/modules/addons/XPIProvider.jsm, line 2530
+[Parent 40668, Main Thread] ###!!! ABORT: file resource://gre/modules/addons/XPIProvider.jsm, line 2530
+Exiting due to channel error.
+1585885426277	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\SM-1326\\AppData\\Local\\Temp\\rust_mozprofile69gv69"
+1585885426924	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1585885426953	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1585885426953	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1585885426953	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1585885426953	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1585885429853	Marionette	INFO	Listening on port 56573
+1585885430183	Marionette	WARN	TLS certificate errors will be ignored for this session
+1585885431991	Marionette	INFO	Stopped listening on port 56573
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+
+KLIB_SelfTest return : KLR_OK
+1585885570166	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\SM-1326\\AppData\\Local\\Temp\\rust_mozprofile1DVvyb"
+1585885570823	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1585885570853	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1585885570853	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1585885570853	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1585885570853	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1585885573689	Marionette	INFO	Listening on port 56653
+1585885574009	Marionette	WARN	TLS certificate errors will be ignored for this session
+1585885587548	Marionette	INFO	Stopped listening on port 56653
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+
+KLIB_SelfTest return : KLR_OK
+1585885592277	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\SM-1326\\AppData\\Local\\Temp\\rust_mozprofileofm63l"
+1585885592913	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1585885592943	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1585885592943	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1585885592943	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1585885592943	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1585885595946	Marionette	INFO	Listening on port 56707
+1585885596242	Marionette	WARN	TLS certificate errors will be ignored for this session
+1585885607328	Marionette	INFO	Stopped listening on port 56707
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+
+KLIB_SelfTest return : KLR_OK
+1585885611755	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\SM-1326\\AppData\\Local\\Temp\\rust_mozprofile1SFxZb"
+1585885612411	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1585885612439	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1585885612439	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1585885612439	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1585885612439	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1585885615600	Marionette	INFO	Listening on port 56757
+1585885615714	Marionette	WARN	TLS certificate errors will be ignored for this session
+1585885626335	Marionette	INFO	Stopped listening on port 56757
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+
+KLIB_SelfTest return : KLR_OK
+1585885635245	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\SM-1326\\AppData\\Local\\Temp\\rust_mozprofilesF9b63"
+1585885635924	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1585885635953	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1585885635953	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1585885635953	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1585885635953	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1585885638408	Marionette	INFO	Listening on port 56814
+[Parent 3856, Gecko_IOThread] WARNING: pipe error: 232: file z:/task_1583751780/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 507
+A content process crashed and MOZ_CRASHREPORTER_SHUTDOWN is set, shutting down
+Extension error: extension.persistentListeners is undefined resource://gre/modules/ExtensionCommon.jsm:2359 :: clearPrimedListeners@resource://gre/modules/ExtensionCommon.jsm:2359:39
+build@chrome://extensions/content/parent/ext-backgroundPage.js:73:20
+flushAllWindowsAsync@resource:///modules/sessionstore/SessionStore.jsm:1911:7
+ssi_onQuitApplicationGranted/<@resource:///modules/sessionstore/SessionStore.jsm:1829:32
+trigger@resource://gre/modules/AsyncShutdown.jsm:725:23
+_wait@resource://gre/modules/AsyncShutdown.jsm:877:15
+wait@resource://gre/modules/AsyncShutdown.jsm:858:34
+observe@resource://gre/modules/AsyncShutdown.jsm:533:10
+observe@resource:///modules/ContentCrashHandlers.jsm:177:28
+
+Extension error: extension.persistentListeners is undefined resource://gre/modules/ExtensionCommon.jsm:2359 :: clearPrimedListeners@resource://gre/modules/ExtensionCommon.jsm:2359:39
+build@chrome://extensions/content/parent/ext-backgroundPage.js:73:20
+flushAllWindowsAsync@resource:///modules/sessionstore/SessionStore.jsm:1911:7
+ssi_onQuitApplicationGranted/<@resource:///modules/sessionstore/SessionStore.jsm:1829:32
+trigger@resource://gre/modules/AsyncShutdown.jsm:725:23
+_wait@resource://gre/modules/AsyncShutdown.jsm:877:15
+wait@resource://gre/modules/AsyncShutdown.jsm:858:34
+observe@resource://gre/modules/AsyncShutdown.jsm:533:10
+observe@resource:///modules/ContentCrashHandlers.jsm:177:28
+
+Extension error: extension.persistentListeners is undefined resource://gre/modules/ExtensionCommon.jsm:2359 :: clearPrimedListeners@resource://gre/modules/ExtensionCommon.jsm:2359:39
+build@chrome://extensions/content/parent/ext-backgroundPage.js:73:20
+flushAllWindowsAsync@resource:///modules/sessionstore/SessionStore.jsm:1911:7
+ssi_onQuitApplicationGranted/<@resource:///modules/sessionstore/SessionStore.jsm:1829:32
+trigger@resource://gre/modules/AsyncShutdown.jsm:725:23
+_wait@resource://gre/modules/AsyncShutdown.jsm:877:15
+wait@resource://gre/modules/AsyncShutdown.jsm:858:34
+observe@resource://gre/modules/AsyncShutdown.jsm:533:10
+observe@resource:///modules/ContentCrashHandlers.jsm:177:28
+
+Extension error: extension.persistentListeners is undefined resource://gre/modules/ExtensionCommon.jsm:2359 :: clearPrimedListeners@resource://gre/modules/ExtensionCommon.jsm:2359:39
+build@chrome://extensions/content/parent/ext-backgroundPage.js:73:20
+flushAllWindowsAsync@resource:///modules/sessionstore/SessionStore.jsm:1911:7
+ssi_onQuitApplicationGranted/<@resource:///modules/sessionstore/SessionStore.jsm:1829:32
+trigger@resource://gre/modules/AsyncShutdown.jsm:725:23
+_wait@resource://gre/modules/AsyncShutdown.jsm:877:15
+wait@resource://gre/modules/AsyncShutdown.jsm:858:34
+observe@resource://gre/modules/AsyncShutdown.jsm:533:10
+observe@resource:///modules/ContentCrashHandlers.jsm:177:28
+
+1585885638521	addons.xpi	WARN	Exception running bootstrap method startup on webcompat@mozilla.org: TypeError: extension.persistentListeners is undefined(resource://gre/modules/ExtensionCommon.jsm:2359:39) JS Stack trace: clearPrimedListeners@ExtensionCommon.jsm:2359:39
+build@ext-backgroundPage.js:73:20
+flushAllWindowsAsync@SessionStore.jsm:1911:7
+ssi_onQuitApplicationGranted/<@SessionStore.jsm:1829:32
+trigger@AsyncShutdown.jsm:725:23
+_wait@AsyncShutdown.jsm:877:15
+wait@AsyncShutdown.jsm:858:34
+observe@AsyncShutdown.jsm:533:10
+observe@ContentCrashHandlers.jsm:177:28
+1585885638521	addons.xpi	WARN	Exception running bootstrap method startup on formautofill@mozilla.org: TypeError: extension.persistentListeners is undefined(resource://gre/modules/ExtensionCommon.jsm:2359:39) JS Stack trace: clearPrimedListeners@ExtensionCommon.jsm:2359:39
+build@ext-backgroundPage.js:73:20
+flushAllWindowsAsync@SessionStore.jsm:1911:7
+ssi_onQuitApplicationGranted/<@SessionStore.jsm:1829:32
+trigger@AsyncShutdown.jsm:725:23
+_wait@AsyncShutdown.jsm:877:15
+wait@AsyncShutdown.jsm:858:34
+observe@AsyncShutdown.jsm:533:10
+observe@ContentCrashHandlers.jsm:177:28
+1585885638522	addons.xpi	WARN	Exception running bootstrap method startup on screenshots@mozilla.org: TypeError: extension.persistentListeners is undefined(resource://gre/modules/ExtensionCommon.jsm:2359:39) JS Stack trace: clearPrimedListeners@ExtensionCommon.jsm:2359:39
+build@ext-backgroundPage.js:73:20
+flushAllWindowsAsync@SessionStore.jsm:1911:7
+ssi_onQuitApplicationGranted/<@SessionStore.jsm:1829:32
+trigger@AsyncShutdown.jsm:725:23
+_wait@AsyncShutdown.jsm:877:15
+wait@AsyncShutdown.jsm:858:34
+observe@AsyncShutdown.jsm:533:10
+observe@ContentCrashHandlers.jsm:177:28
+1585885638522	addons.xpi	WARN	Exception running bootstrap method startup on doh-rollout@mozilla.org: TypeError: extension.persistentListeners is undefined(resource://gre/modules/ExtensionCommon.jsm:2359:39) JS Stack trace: clearPrimedListeners@ExtensionCommon.jsm:2359:39
+build@ext-backgroundPage.js:73:20
+flushAllWindowsAsync@SessionStore.jsm:1911:7
+ssi_onQuitApplicationGranted/<@SessionStore.jsm:1829:32
+trigger@AsyncShutdown.jsm:725:23
+_wait@AsyncShutdown.jsm:877:15
+wait@AsyncShutdown.jsm:858:34
+observe@AsyncShutdown.jsm:533:10
+observe@ContentCrashHandlers.jsm:177:28
+1585885638575	Marionette	WARN	TLS certificate errors will be ignored for this session
+WARNING: At least one completion condition is taking too long to complete. Conditions: [{"name":"SessionStore: flushing all windows","state":{"total":1,"current":0},"filename":"resource:///modules/sessionstore/SessionStore.jsm","lineNumber":1823,"stack":["resource:///modules/sessionstore/SessionStore.jsm:ssi_onQuitApplicationGranted:1823","resource:///modules/sessionstore/SessionStore.jsm:ssi_observe:871","resource:///modules/ContentCrashHandlers.jsm:observe:177"]}] Barrier: quit-application-granted
+[Parent 3856, Gecko_IOThread] WARNING: file z:/task_1583751780/build/src/ipc/chromium/src/base/process_util_win.cc, line 160
+1585885694705	Marionette	INFO	Stopped listening on port 56814
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+
+KLIB_SelfTest return : KLR_OK
+ns.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1585885662521	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1585885662521	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1585885662521	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1585886143577	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\SM-1326\\AppData\\Local\\Temp\\rust_mozprofileuCrMIE"
+1585886144208	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1585886144237	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1585886144237	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1585886144237	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1585886144237	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+[Parent 17092, Gecko_IOThread] WARNING: pipe error: 232: file z:/task_1583751780/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 507
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x370022,name=PContent::Msg_PreferenceUpdate) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x370022,name=PContent::Msg_PreferenceUpdate) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x370022,name=PContent::Msg_PreferenceUpdate) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x370022,name=PContent::Msg_PreferenceUpdate) Channel error: cannot send/recv
+
+A content process crashed and MOZ_CRASHREPORTER_SHUTDOWN is set, shutting down
+Extension error: extension.persistentListeners is undefined resource://gre/modules/ExtensionCommon.jsm:2359 :: clearPrimedListeners@resource://gre/modules/ExtensionCommon.jsm:2359:39
+build@chrome://extensions/content/parent/ext-backgroundPage.js:73:20
+observe@resource://gre/modules/AsyncShutdown.jsm:551:16
+observe@resource:///modules/ContentCrashHandlers.jsm:177:28
+
+Extension error: extension.persistentListeners is undefined resource://gre/modules/ExtensionCommon.jsm:2359 :: clearPrimedListeners@resource://gre/modules/ExtensionCommon.jsm:2359:39
+build@chrome://extensions/content/parent/ext-backgroundPage.js:73:20
+observe@resource://gre/modules/AsyncShutdown.jsm:551:16
+observe@resource:///modules/ContentCrashHandlers.jsm:177:28
+
+Extension error: extension.persistentListeners is undefined resource://gre/modules/ExtensionCommon.jsm:2359 :: clearPrimedListeners@resource://gre/modules/ExtensionCommon.jsm:2359:39
+build@chrome://extensions/content/parent/ext-backgroundPage.js:73:20
+observe@resource://gre/modules/AsyncShutdown.jsm:551:16
+observe@resource:///modules/ContentCrashHandlers.jsm:177:28
+
+Extension error: extension.persistentListeners is undefined resource://gre/modules/ExtensionCommon.jsm:2359 :: clearPrimedListeners@resource://gre/modules/ExtensionCommon.jsm:2359:39
+build@chrome://extensions/content/parent/ext-backgroundPage.js:73:20
+observe@resource://gre/modules/AsyncShutdown.jsm:551:16
+observe@resource:///modules/ContentCrashHandlers.jsm:177:28
+
+1585886146472	addons.xpi	WARN	Exception running bootstrap method startup on screenshots@mozilla.org: TypeError: extension.persistentListeners is undefined(resource://gre/modules/ExtensionCommon.jsm:2359:39) JS Stack trace: clearPrimedListeners@ExtensionCommon.jsm:2359:39
+build@ext-backgroundPage.js:73:20
+observe@AsyncShutdown.jsm:551:16
+observe@ContentCrashHandlers.jsm:177:28
+1585886146473	addons.xpi	WARN	Exception running bootstrap method startup on formautofill@mozilla.org: TypeError: extension.persistentListeners is undefined(resource://gre/modules/ExtensionCommon.jsm:2359:39) JS Stack trace: clearPrimedListeners@ExtensionCommon.jsm:2359:39
+build@ext-backgroundPage.js:73:20
+observe@AsyncShutdown.jsm:551:16
+observe@ContentCrashHandlers.jsm:177:28
+1585886146473	addons.xpi	WARN	Exception running bootstrap method startup on doh-rollout@mozilla.org: TypeError: extension.persistentListeners is undefined(resource://gre/modules/ExtensionCommon.jsm:2359:39) JS Stack trace: clearPrimedListeners@ExtensionCommon.jsm:2359:39
+build@ext-backgroundPage.js:73:20
+observe@AsyncShutdown.jsm:551:16
+observe@ContentCrashHandlers.jsm:177:28
+1585886146473	addons.xpi	WARN	Exception running bootstrap method startup on webcompat@mozilla.org: TypeError: extension.persistentListeners is undefined(resource://gre/modules/ExtensionCommon.jsm:2359:39) JS Stack trace: clearPrimedListeners@ExtensionCommon.jsm:2359:39
+build@ext-backgroundPage.js:73:20
+observe@AsyncShutdown.jsm:551:16
+observe@ContentCrashHandlers.jsm:177:28
+[Parent 17092, Gecko_IOThread] WARNING: file z:/task_1583751780/build/src/ipc/chromium/src/base/process_util_win.cc, line 160
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+
+KLIB_SelfTest return : KLR_OK
+1585886166452	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\SM-1326\\AppData\\Local\\Temp\\rust_mozprofileQNj1QT"
+1585886167098	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1585886167127	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1585886167127	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1585886167127	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1585886167127	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+[Parent 6024, Gecko_IOThread] WARNING: Failed to launch tab subprocess: file z:/task_1583751780/build/src/ipc/glue/GeckoChildProcessHost.cpp, line 690
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1585886170005	Marionette	INFO	Listening on port 57064
+1585886170342	Marionette	WARN	TLS certificate errors will be ignored for this session
+1585886176267	Marionette	INFO	Stopped listening on port 57064
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+
+KLIB_SelfTest return : KLR_OK
+1585886200462	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\SM-1326\\AppData\\Local\\Temp\\rust_mozprofile7yA0zf"
+1585886201088	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1585886201119	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1585886201119	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1585886201119	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1585886201120	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+[Parent 42340, Gecko_IOThread] WARNING: Failed to launch tab subprocess: file z:/task_1583751780/build/src/ipc/glue/GeckoChildProcessHost.cpp, line 690
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1585886203729	Marionette	INFO	Listening on port 57108
+1585886203790	Marionette	WARN	TLS certificate errors will be ignored for this session
+1585886222574	Marionette	INFO	Stopped listening on port 57108
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+
+KLIB_SelfTest return : KLR_OK
